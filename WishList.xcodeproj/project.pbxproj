@@ -13,6 +13,8 @@
 		B5D2DAA42BCD356B00EE2CCF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B5D2DAA32BCD356B00EE2CCF /* Base */; };
 		B5D2DAA62BCD356D00EE2CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D2DAA52BCD356D00EE2CCF /* Assets.xcassets */; };
 		B5D2DAA92BCD356D00EE2CCF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B5D2DAA82BCD356D00EE2CCF /* Base */; };
+		B5D2DABB2BCD44E100EE2CCF /* ProductAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DABA2BCD44E100EE2CCF /* ProductAPIManager.swift */; };
+		B5D2DABD2BCD45A000EE2CCF /* RemoteProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DABC2BCD45A000EE2CCF /* RemoteProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B5D2DAA52BCD356D00EE2CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B5D2DAA82BCD356D00EE2CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B5D2DAAA2BCD356D00EE2CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5D2DABA2BCD44E100EE2CCF /* ProductAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIManager.swift; sourceTree = "<group>"; };
+		B5D2DABC2BCD45A000EE2CCF /* RemoteProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		B5D2DAB12BCD3FC100EE2CCF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2DABC2BCD45A000EE2CCF /* RemoteProduct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 		B5D2DAB22BCD3FCF00EE2CCF /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2DABA2BCD44E100EE2CCF /* ProductAPIManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -221,6 +227,8 @@
 				B5D2DAA12BCD356B00EE2CCF /* ViewController.swift in Sources */,
 				B5D2DA9D2BCD356B00EE2CCF /* AppDelegate.swift in Sources */,
 				B5D2DA9F2BCD356B00EE2CCF /* SceneDelegate.swift in Sources */,
+				B5D2DABB2BCD44E100EE2CCF /* ProductAPIManager.swift in Sources */,
+				B5D2DABD2BCD45A000EE2CCF /* RemoteProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
