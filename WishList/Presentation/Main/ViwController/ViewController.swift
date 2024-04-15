@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Get product with id
         ProductAPIManager.shared.fetchProduct(id: 1) { result in
             switch result {
             case .success(let product):
