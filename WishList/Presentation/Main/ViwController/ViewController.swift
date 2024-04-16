@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Get product with id
-        ProductAPIManager.shared.fetchProduct(id: 1) { result in
+        ProductAPIManager.shared.fetchProduct(id: 2) { result in
             switch result {
             case .success(let product):
                 // product 인스턴스를 사용하여 작업 수행
