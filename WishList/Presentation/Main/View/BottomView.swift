@@ -17,7 +17,7 @@ class BottomView: UIView{
         configuration.image = UIImage(systemName: "cart.fill.badge.plus")
         configuration.imagePadding = 10 // 이미지와 타이틀 사이의 간격 조정
         configuration.imagePlacement = .leading // 이미지를 타이틀의 앞에 배치
-        configuration.baseBackgroundColor = .systemBlue
+        configuration.baseBackgroundColor = UIColor(red: 0.07, green: 0.18, blue: 0.31, alpha: 1.00)
         configuration.baseForegroundColor = .white
         configuration.cornerStyle = .capsule
         
@@ -37,7 +37,7 @@ class BottomView: UIView{
         configuration.image = UIImage(systemName: "dollarsign.circle.fill")
         configuration.imagePadding = 10 // 이미지와 타이틀 사이의 간격 조정
         configuration.imagePlacement = .leading
-        configuration.baseBackgroundColor = .systemBlue
+        configuration.baseBackgroundColor = UIColor(red: 0.25, green: 0.45, blue: 0.69, alpha: 1.00)
         configuration.baseForegroundColor = .white
         configuration.cornerStyle = .capsule
         
@@ -63,13 +63,13 @@ class BottomView: UIView{
         
         addCartButton.snp.makeConstraints{
             $0.top.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-32)
             $0.bottom.equalToSuperview().offset(-16)
-            $0.width.equalToSuperview().multipliedBy(0.6)
+            $0.width.equalToSuperview().multipliedBy(0.5)
         }
         priceButton.snp.makeConstraints{
             $0.top.equalToSuperview().offset(16)
-            $0.leading.equalToSuperview()
+            $0.leading.equalToSuperview().offset(32)
             $0.bottom.equalToSuperview().offset(-16)
             $0.trailing.equalTo(addCartButton.snp.leading).offset(-8)
         }
