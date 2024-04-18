@@ -10,6 +10,19 @@ import CoreData
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var mainScrollView: UIScrollView!
+    @IBOutlet weak var productImageCollection: UICollectionView!
+    @IBOutlet weak var descriptionView: DescriptionView!
+    @IBOutlet weak var buttonView: UIView!
+    
+    var productData: RemoteProduct? {
+        didSet {
+            DispatchQueue.main.async {
+                self.productImageCollection.reloadData()
+            }
+        }
+    }
+    
     var persistentContainer: NSPersistentContainer? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return nil
@@ -20,15 +33,24 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let layout = productImageCollection.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        productImageCollection.isPagingEnabled = true
+        productImageCollection.dataSource = self
+        productImageCollection.delegate = self
+        
         // Get product with id
-        ProductAPIManager.shared.fetchProduct(id: 2) { result in
+        ProductAPIManager.shared.fetchProduct(id: 1) { result in
             switch result {
             case .success(let product):
                 // product 인스턴스를 사용하여 작업 수행
                 print(product)
-                DispatchQueue.main.async {
-                    self.saveCoreData(product)
-                }
+                self.productData = product
+                //                DispatchQueue.main.async {
+                //                    self.saveCoreData(product)
+                //                }
             case .failure(let error):
                 // 에러 처리
                 print(error.localizedDescription)
@@ -68,6 +90,31 @@ class ViewController: UIViewController {
             print(products)
         }
     }
-
+    
 }
 
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.productData?.images.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductImageCell", for: indexPath) as? ProductImageCell else {
+            print("Failed to dequeue ProductImageCell")
+            return UICollectionViewCell()
+        }
+        guard let productData = self.productData else {
+            print("productData is nil")
+            return UICollectionViewCell()
+        }
+        cell.configure(with: productData.images[indexPath.item])
+        return cell
+    }
+}
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // 원하는 셀의 크기를 반환합니다.
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
+    }
+}
