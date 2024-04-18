@@ -94,6 +94,11 @@ class ViewController: UIViewController {
     @objc func cartButtonTapped() {
         // 장바구니 버튼을 탭했을 때 수행할 동작 구현
         print("장바구니 버튼이 탭되었습니다.")
+        guard let wishListViewController = UIStoryboard(name: "WishList", bundle: nil).instantiateViewController(withIdentifier: "WishList") as? WishListViewController else {
+            return
+        }
+        
+        self.present(wishListViewController, animated: true)
     }
     
     func saveCoreData(_ product: RemoteProduct) {
