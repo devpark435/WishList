@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         didSet {
             DispatchQueue.main.async {
                 self.productImageCollection.reloadData()
+                self.descriptionView.configure(with: self.productData?.title ?? "", description: self.productData?.description ?? "", price: "\(self.productData?.price ?? 0)")
             }
         }
     }
@@ -48,15 +49,17 @@ class ViewController: UIViewController {
                 // product 인스턴스를 사용하여 작업 수행
                 print(product)
                 self.productData = product
-                //                DispatchQueue.main.async {
-                //                    self.saveCoreData(product)
-                //                }
             case .failure(let error):
                 // 에러 처리
                 print(error.localizedDescription)
             }
         }
-        
+        descriptionView.addWishListButton.addTarget(self, action: #selector(addWishList), for: .touchUpInside)
+    }
+    
+    @objc func addWishList(){
+        print("Add to WishList")
+        saveCoreData(self.productData!)
     }
     
     func saveCoreData(_ product: RemoteProduct) {
@@ -90,6 +93,7 @@ class ViewController: UIViewController {
             print(products)
         }
     }
+    
     
 }
 
