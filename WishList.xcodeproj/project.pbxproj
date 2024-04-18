@@ -20,6 +20,7 @@
 		B5D2DAC52BCFEEA100EE2CCF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B5D2DAC42BCFEEA100EE2CCF /* SnapKit */; };
 		B5D2DAC82BCFEEAA00EE2CCF /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B5D2DAC72BCFEEAA00EE2CCF /* Then */; };
 		B5D2DACC2BCFFFDC00EE2CCF /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DACB2BCFFFDC00EE2CCF /* DescriptionView.swift */; };
+		B5D2DACE2BD11C7C00EE2CCF /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DACD2BD11C7C00EE2CCF /* BottomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B5D2DABF2BCD48A200EE2CCF /* SelectProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SelectProductModel.xcdatamodel; sourceTree = "<group>"; };
 		B5D2DAC12BCFEDD000EE2CCF /* ProductImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageCell.swift; sourceTree = "<group>"; };
 		B5D2DACB2BCFFFDC00EE2CCF /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		B5D2DACD2BD11C7C00EE2CCF /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				B5D2DAC12BCFEDD000EE2CCF /* ProductImageCell.swift */,
 				B5D2DACB2BCFFFDC00EE2CCF /* DescriptionView.swift */,
+				B5D2DACD2BD11C7C00EE2CCF /* BottomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5D2DACE2BD11C7C00EE2CCF /* BottomView.swift in Sources */,
 				B5D2DAA12BCD356B00EE2CCF /* ViewController.swift in Sources */,
 				B5D2DAC22BCFEDD000EE2CCF /* ProductImageCell.swift in Sources */,
 				B5D2DA9D2BCD356B00EE2CCF /* AppDelegate.swift in Sources */,
