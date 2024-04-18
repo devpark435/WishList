@@ -23,61 +23,59 @@ class DescriptionView: UIView{
         $0.numberOfLines = 0
     }
     
-    let addWishListButton = UIButton().then {
-        $0.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        $0.setTitle("Add to WishList", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = .systemBlue
-        $0.layer.cornerRadius = 10
-    }
-    
-    let priceButton = UIButton().then{
-        $0.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        $0.setTitleColor(.white, for: .normal)
-        $0.backgroundColor = .systemGray
-        $0.layer.cornerRadius = 10
+    let nextButton = UIButton().then {
+        var configuration = UIButton.Configuration.filled()
+        configuration.title = "Next"
+        configuration.image = UIImage(systemName: "chevron.forward.circle.fill")
+        configuration.imagePadding = 10 // 이미지와 타이틀 사이의 간격 조정
+        configuration.imagePlacement = .trailing // 이미지를 타이틀의 앞에 배치
+        configuration.baseBackgroundColor = UIColor(red: 0.25, green: 0.45, blue: 0.69, alpha: 1.00)
+        configuration.baseForegroundColor = .white
+        configuration.cornerStyle = .capsule
+        
+        // titleTextAttributesTransformer를 사용하여 타이틀의 글꼴 설정
+        configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = .boldSystemFont(ofSize: 20)
+            return outgoing
+        }
+        
+        $0.configuration = configuration
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        layer.cornerRadius = 16
     }
     
     func setupUI() {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
-        addSubview(addWishListButton)
-        addSubview(priceButton)
+        addSubview(nextButton)
         
         titleLabel.snp.makeConstraints{
-            $0.top.equalToSuperview().offset(16)
-            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().offset(32)
+            $0.leading.equalToSuperview().offset(32)
+            $0.trailing.equalToSuperview().offset(-32)
         }
         
         descriptionLabel.snp.makeConstraints{
             $0.top.equalTo(titleLabel.snp.bottom).offset(16)
-            $0.leading.equalToSuperview().offset(16)
+            $0.leading.equalToSuperview().offset(32)
             $0.trailing.equalToSuperview().offset(-16)
         }
         
-        priceButton.snp.makeConstraints{
-            $0.bottom.equalToSuperview().offset(-16)
-            $0.trailing.equalToSuperview().offset(-16)
-            $0.height.equalTo(50)
-        }
-        
-        addWishListButton.snp.makeConstraints{
-            $0.bottom.equalToSuperview().offset(-16)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalTo(priceButton.snp.leading).offset(-8)
-            $0.width.equalToSuperview().multipliedBy(0.6)
+        nextButton.snp.makeConstraints{
+            $0.bottom.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-32)
+            $0.width.equalToSuperview().multipliedBy(0.3)
             $0.height.equalTo(50)
         }
     }
     
-    func configure(with title: String, description: String, price: String) {
+    func configure(with title: String, description: String) {
         titleLabel.text = title
         descriptionLabel.text = description
-        priceButton.setTitle("\(price)$", for: .normal)
     }
 }
