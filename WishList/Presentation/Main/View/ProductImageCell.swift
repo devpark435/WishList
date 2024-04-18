@@ -12,7 +12,7 @@ import Then
 class ProductImageCell: UICollectionViewCell {
     
     let productImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleToFill
         $0.clipsToBounds = true
     }
     
@@ -24,17 +24,18 @@ class ProductImageCell: UICollectionViewCell {
     
     func setupUI() {
         contentView.addSubview(productImageView)
-//        contentView.snp.makeConstraints{
-//            $0.width.equalTo(300)
-//            $0.height.equalTo(100)
-//        }
         productImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            $0.height.equalTo(250)
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageView.image = nil // 셀 재사용 시 이미지 초기화
+    }
+    
     func configure(with imageURL: URL) {
+        productImageView.image = nil
         URLSession.shared.dataTask(with: imageURL) { [weak self] (data, response, error) in
             guard let self = self else { return }
             
