@@ -75,7 +75,7 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="hwj-IE-3UA"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="FdT-Qp-p0l"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTa-Rm-STI">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTa-Rm-STI" customClass="BottomView" customModule="WishList" customModuleProvider="target">
                                 <rect key="frame" x="16" y="718" width="361" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>

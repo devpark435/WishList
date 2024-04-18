@@ -13,13 +13,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var productImageCollection: UICollectionView!
     @IBOutlet weak var descriptionView: DescriptionView!
-    @IBOutlet weak var buttonView: UIView!
+    @IBOutlet weak var buttonView: BottomView!
     
     var productData: RemoteProduct? {
         didSet {
             DispatchQueue.main.async {
                 self.productImageCollection.reloadData()
                 self.descriptionView.configure(with: self.productData?.title ?? "", description: self.productData?.description ?? "", price: "\(self.productData?.price ?? 0)")
+                self.buttonView.updatePriceTitle("\(self.productData?.price ?? 0)")
             }
         }
     }
