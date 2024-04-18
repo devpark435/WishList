@@ -15,12 +15,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var descriptionView: DescriptionView!
     @IBOutlet weak var buttonView: BottomView!
     
+    var productionId = 1
+    
     var productData: RemoteProduct? {
         didSet {
             DispatchQueue.main.async {
-                self.productImageCollection.reloadData()
-                self.descriptionView.configure(with: self.productData?.title ?? "", description: self.productData?.description ?? "", price: "\(self.productData?.price ?? 0)")
-                self.buttonView.updatePriceTitle("\(self.productData?.price ?? 0)")
+                // 애니메이션 옵션 설정
+                let options: UIView.AnimationOptions = [.transitionCrossDissolve, .allowUserInteraction]
+                // 애니메이션 적용
+                UIView.transition(with: self.view, duration: 0.3, options: options, animations: {
+                    // 애니메이션이 필요한 UI 업데이트 코드 작성
+                    self.productImageCollection.reloadData()
+                    self.descriptionView.configure(with: self.productData?.title ?? "", description: self.productData?.description ?? "")
+                    self.buttonView.updatePriceTitle("\(self.productData?.price ?? 0)")
+                }, completion: nil)
+                
             }
         }
     }
@@ -43,8 +52,23 @@ class ViewController: UIViewController {
         productImageCollection.dataSource = self
         productImageCollection.delegate = self
         
+        fetchProductData(id: productionId)
+        descriptionView.nextButton.addTarget(self, action: #selector(nextProduction), for: .touchUpInside)
+        buttonView.addCartButton.addTarget(self, action: #selector(addWishList), for: .touchUpInside)
+        
+        // 장바구니 버튼 생성
+        let cartButton = UIBarButtonItem(image: UIImage(systemName: "cart.fill"),
+                                         style: .plain,
+                                         target: self,
+                                         action: #selector(cartButtonTapped))
+        
+        // 장바구니 버튼을 Navigation Bar의 오른쪽에 추가
+        navigationItem.rightBarButtonItem = cartButton
+    }
+    
+    func fetchProductData(id: Int){
         // Get product with id
-        ProductAPIManager.shared.fetchProduct(id: 1) { result in
+        ProductAPIManager.shared.fetchProduct(id: id) { result in
             switch result {
             case .success(let product):
                 // product 인스턴스를 사용하여 작업 수행
@@ -55,12 +79,21 @@ class ViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-        descriptionView.addWishListButton.addTarget(self, action: #selector(addWishList), for: .touchUpInside)
+    }
+    
+    @objc func nextProduction(){
+        self.productionId += 1
+        fetchProductData(id: productionId)
     }
     
     @objc func addWishList(){
         print("Add to WishList")
         saveCoreData(self.productData!)
+    }
+    
+    @objc func cartButtonTapped() {
+        // 장바구니 버튼을 탭했을 때 수행할 동작 구현
+        print("장바구니 버튼이 탭되었습니다.")
     }
     
     func saveCoreData(_ product: RemoteProduct) {
