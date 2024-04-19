@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreData
+import SnapKit
+import Then
 
 class WishListViewController: UIViewController{
     
@@ -69,13 +71,22 @@ extension WishListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     // 셀 삭제 시 코어 데이터에서 해당 내용 삭제하는 메서드 추가
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let product = products[indexPath.row]
-            deleteProduct(product)
-            products.remove(at: indexPath.row)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            // 삭제 작업 수행
+            let product = self.products[indexPath.row]
+            self.deleteProduct(product)
+            self.products.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            completionHandler(true)
         }
+        
+        // 삭제 버튼의 배경색 변경
+        deleteAction.backgroundColor = UIColor(red: 0.07, green: 0.18, blue: 0.31, alpha: 1.00)
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
     }
     
     // 코어 데이터에서 상품 삭제하는 메서드
@@ -91,3 +102,4 @@ extension WishListViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
+
