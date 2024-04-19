@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dBz-dk-nc4">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="615"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectedProductCell" id="6hE-ZC-QlB" customClass="SelectedProductCell" customModule="WishList" customModuleProvider="target">
@@ -31,14 +31,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCJ-uT-1CM">
+                                <rect key="frame" x="0.0" y="718" width="393" height="100"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ntw-Tr-vkc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="dBz-dk-nc4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="5uZ-La-HIa"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dBz-dk-nc4" secondAttribute="bottom" id="6f4-Cf-X1I"/>
+                            <constraint firstItem="dCJ-uT-1CM" firstAttribute="top" secondItem="dBz-dk-nc4" secondAttribute="bottom" id="EjT-9f-anY"/>
+                            <constraint firstItem="dCJ-uT-1CM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Ley-WB-IFt"/>
                             <constraint firstItem="dBz-dk-nc4" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="RoQ-mf-6YT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dBz-dk-nc4" secondAttribute="trailing" id="b1m-UJ-6md"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dCJ-uT-1CM" secondAttribute="bottom" id="bl9-NU-8p5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dCJ-uT-1CM" secondAttribute="trailing" id="rve-Dd-ejN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dx2-5u-gxb"/>
