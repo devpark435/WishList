@@ -13,7 +13,7 @@ import CoreData
 class SelectedProductCell: UITableViewCell{
     
     let productImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 16
     }
@@ -30,7 +30,10 @@ class SelectedProductCell: UITableViewCell{
     let productDiscountLabel = UILabel().then {
         $0.font = .boldSystemFont(ofSize: 17)
     }
+    
     var id = 0
+    
+    var discountedPrice = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -87,7 +90,9 @@ class SelectedProductCell: UITableViewCell{
         if let price = product.value(forKey: "price") as? Double {
             productPriceLabel.text = "\(price)$"
             if let discount = product.value(forKey: "discountPercentage") as? Double {
-                productDiscountLabel.text = "\(price - discount)$"
+                let discountedPrice = price * (1 - discount / 100)
+                productDiscountLabel.text = "\(String(format: "%.2f", discountedPrice))$"
+                self.discountedPrice = discountedPrice
             }
         }
         

@@ -31,7 +31,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCJ-uT-1CM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dCJ-uT-1CM" customClass="PayButtonView" customModule="WishList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="718" width="393" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -53,6 +53,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Dx2-5u-gxb"/>
                     <connections>
+                        <outlet property="payButtonView" destination="dCJ-uT-1CM" id="cmI-8h-f15"/>
                         <outlet property="wishListTableView" destination="dBz-dk-nc4" id="lc2-PF-VNn"/>
                     </connections>
                 </viewController>

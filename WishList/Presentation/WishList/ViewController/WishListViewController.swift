@@ -13,9 +13,12 @@ import Then
 class WishListViewController: UIViewController{
     
     @IBOutlet weak var wishListTableView: UITableView!
+    @IBOutlet weak var payButtonView: PayButtonView!
     
     var persistentContainer: NSPersistentContainer?
     var products: [NSManagedObject] = []
+    
+    var totalDiscountedPrice: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,12 @@ class WishListViewController: UIViewController{
         wishListTableView.delegate = self
         
         fetchProducts()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        totalDiscountedPrice = 0.0
     }
     
     func fetchProducts() {
@@ -66,6 +75,9 @@ extension WishListViewController: UITableViewDataSource, UITableViewDelegate {
         
         let product = products[indexPath.row]
         cell.configure(with: product)
+        
+        totalDiscountedPrice += cell.discountedPrice
+        payButtonView.updatePriceTitle((String(format: "%.2f", totalDiscountedPrice)))
         
         return cell
     }
