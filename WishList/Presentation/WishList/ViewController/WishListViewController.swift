@@ -13,6 +13,7 @@ import Then
 class WishListViewController: UIViewController{
     
     @IBOutlet weak var wishListTableView: UITableView!
+    @IBOutlet weak var payButtonView: PayButtonView!
     
     var persistentContainer: NSPersistentContainer?
     var products: [NSManagedObject] = []

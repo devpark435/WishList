@@ -24,6 +24,7 @@
 		B5D2DAD62BD13E5200EE2CCF /* WishList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D2DAD52BD13E5200EE2CCF /* WishList.storyboard */; };
 		B5D2DAD82BD13EC500EE2CCF /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DAD72BD13EC500EE2CCF /* WishListViewController.swift */; };
 		B5D2DADA2BD1408400EE2CCF /* SelectedProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DAD92BD1408400EE2CCF /* SelectedProductCell.swift */; };
+		B5D2DADC2BD28DF400EE2CCF /* PayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DADB2BD28DF400EE2CCF /* PayButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B5D2DAD52BD13E5200EE2CCF /* WishList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WishList.storyboard; sourceTree = "<group>"; };
 		B5D2DAD72BD13EC500EE2CCF /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		B5D2DAD92BD1408400EE2CCF /* SelectedProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProductCell.swift; sourceTree = "<group>"; };
+		B5D2DADB2BD28DF400EE2CCF /* PayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D2DAD72BD13EC500EE2CCF /* WishListViewController.swift */,
+				B5D2DADB2BD28DF400EE2CCF /* PayButtonView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				B5D2DACE2BD11C7C00EE2CCF /* BottomView.swift in Sources */,
 				B5D2DAD82BD13EC500EE2CCF /* WishListViewController.swift in Sources */,
 				B5D2DADA2BD1408400EE2CCF /* SelectedProductCell.swift in Sources */,
+				B5D2DADC2BD28DF400EE2CCF /* PayButtonView.swift in Sources */,
 				B5D2DAA12BCD356B00EE2CCF /* ViewController.swift in Sources */,
 				B5D2DAC22BCFEDD000EE2CCF /* ProductImageCell.swift in Sources */,
 				B5D2DA9D2BCD356B00EE2CCF /* AppDelegate.swift in Sources */,
