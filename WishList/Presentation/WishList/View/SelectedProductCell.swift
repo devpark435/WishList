@@ -23,11 +23,11 @@ class SelectedProductCell: UITableViewCell{
     }
     
     let productPriceLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 18)
+        $0.font = .systemFont(ofSize: 17)
     }
     
     let productDiscountLabel = UILabel().then {
-        $0.font = .systemFont(ofSize: 16)
+        $0.font = .boldSystemFont(ofSize: 17)
     }
     var id = 0
     
@@ -35,6 +35,11 @@ class SelectedProductCell: UITableViewCell{
         super.awakeFromNib()
         
         setUI()
+        // 가로줄 추가
+        let attributeString = NSMutableAttributedString(string: "원래 가격")
+        attributeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, attributeString.length))
+        productPriceLabel.attributedText = attributeString
+        
     }
     
     override func prepareForReuse() {
@@ -52,6 +57,7 @@ class SelectedProductCell: UITableViewCell{
             $0.top.equalToSuperview().offset(16)
             $0.leading.equalToSuperview().offset(16)
             $0.width.height.equalTo(100)
+            $0.bottom.equalToSuperview().offset(-16)
         }
         productNameLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16)
@@ -60,12 +66,10 @@ class SelectedProductCell: UITableViewCell{
         }
         productPriceLabel.snp.makeConstraints {
             $0.top.equalTo(productNameLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(productImageView.snp.trailing).offset(8)
             $0.trailing.equalToSuperview().offset(-16)
         }
         productDiscountLabel.snp.makeConstraints {
             $0.top.equalTo(productPriceLabel.snp.bottom).offset(8)
-            $0.leading.equalTo(productImageView.snp.trailing).offset(8)
             $0.trailing.equalToSuperview().offset(-16)
             $0.bottom.equalToSuperview().offset(-16)
         }
@@ -81,11 +85,12 @@ class SelectedProductCell: UITableViewCell{
         
         if let price = product.value(forKey: "price") as? Double {
             productPriceLabel.text = "\(price)$"
+            if let discount = product.value(forKey: "discountPercentage") as? Double {
+                productDiscountLabel.text = "\(price - discount)$"
+            }
         }
         
-        if let discount = product.value(forKey: "discountPercentage") as? Double {
-            productDiscountLabel.text = "\(discount)$"
-        }
+        
         
         if let thumbnailURL = product.value(forKey: "thumbnail") as? URL {
             URLSession.shared.dataTask(with: thumbnailURL) { [weak self] (data, response, error) in
