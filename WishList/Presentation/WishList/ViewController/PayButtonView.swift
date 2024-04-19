@@ -65,7 +65,7 @@ class PayButtonView: UIView{
             $0.top.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().offset(-32)
             $0.bottom.equalToSuperview().offset(-16)
-            $0.width.equalToSuperview().multipliedBy(0.5)
+            $0.width.equalToSuperview().multipliedBy(0.45)
         }
         priceButton.snp.makeConstraints{
             $0.top.equalToSuperview().offset(16)
