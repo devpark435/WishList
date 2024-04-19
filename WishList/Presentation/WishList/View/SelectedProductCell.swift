@@ -30,7 +30,10 @@ class SelectedProductCell: UITableViewCell{
     let productDiscountLabel = UILabel().then {
         $0.font = .boldSystemFont(ofSize: 17)
     }
+    
     var id = 0
+    
+    var discountedPrice = 0.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -88,7 +91,8 @@ class SelectedProductCell: UITableViewCell{
             productPriceLabel.text = "\(price)$"
             if let discount = product.value(forKey: "discountPercentage") as? Double {
                 let discountedPrice = price * (1 - discount / 100)
-                productDiscountLabel.text = "\(discountedPrice)$"
+                productDiscountLabel.text = "\(String(format: "%.2f", discountedPrice))$"
+                self.discountedPrice = discountedPrice
             }
         }
         
