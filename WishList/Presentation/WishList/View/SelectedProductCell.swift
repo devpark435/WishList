@@ -13,7 +13,7 @@ import CoreData
 class SelectedProductCell: UITableViewCell{
     
     let productImageView = UIImageView().then {
-        $0.contentMode = .scaleAspectFit
+        $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 16
     }
