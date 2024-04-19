@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var mainScrollView: UIScrollView!
     @IBOutlet weak var productImageCollection: UICollectionView!
@@ -64,6 +64,22 @@ class ViewController: UIViewController {
         
         // 장바구니 버튼을 Navigation Bar의 오른쪽에 추가
         navigationItem.rightBarButtonItem = cartButton
+        
+        scrollEvent()
+    }
+    
+    func scrollEvent(){
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+        mainScrollView.refreshControl = refreshControl
+        mainScrollView.delegate = self
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        // 새로고침 작업 수행
+        fetchProductData(id: productionId)
+        // 새로고침 작업 완료 후 refreshControl 종료
+        refreshControl.endRefreshing()
     }
     
     func fetchProductData(id: Int){
