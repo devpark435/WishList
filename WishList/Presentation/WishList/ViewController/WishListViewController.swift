@@ -66,27 +66,4 @@ extension WishListViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
-    
-    // 셀 삭제 시 코어 데이터에서 해당 내용 삭제하는 메서드 추가
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let product = products[indexPath.row]
-            deleteProduct(product)
-            products.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
-    // 코어 데이터에서 상품 삭제하는 메서드
-    func deleteProduct(_ product: NSManagedObject) {
-        guard let context = persistentContainer?.viewContext else { return }
-        context.delete(product)
-        
-        do {
-            try context.save()
-            print("Product deleted from Core Data")
-        } catch {
-            print("Failed to delete product: \(error)")
-        }
-    }
 }
