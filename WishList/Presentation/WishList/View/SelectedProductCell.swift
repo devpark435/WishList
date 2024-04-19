@@ -87,7 +87,8 @@ class SelectedProductCell: UITableViewCell{
         if let price = product.value(forKey: "price") as? Double {
             productPriceLabel.text = "\(price)$"
             if let discount = product.value(forKey: "discountPercentage") as? Double {
-                productDiscountLabel.text = "\(price - discount)$"
+                let discountedPrice = price * (1 - discount / 100)
+                productDiscountLabel.text = "\(discountedPrice)$"
             }
         }
         
