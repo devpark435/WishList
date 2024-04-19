@@ -45,16 +45,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let layout = productImageCollection.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
-        productImageCollection.isPagingEnabled = true
-        productImageCollection.dataSource = self
-        productImageCollection.delegate = self
-        
         fetchProductData(id: productionId)
-        descriptionView.nextButton.addTarget(self, action: #selector(nextProduction), for: .touchUpInside)
-        buttonView.addCartButton.addTarget(self, action: #selector(addWishList), for: .touchUpInside)
+        
+        setProductImageCollection()
+        
+        addTarget()
         
         // 장바구니 버튼 생성
         let cartButton = UIBarButtonItem(image: UIImage(systemName: "cart.fill"),
@@ -73,6 +68,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         mainScrollView.refreshControl = refreshControl
         mainScrollView.delegate = self
+    }
+    
+    func setProductImageCollection(){
+        if let layout = productImageCollection.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        productImageCollection.isPagingEnabled = true
+        productImageCollection.dataSource = self
+        productImageCollection.delegate = self
     }
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
@@ -95,6 +99,10 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                 print(error.localizedDescription)
             }
         }
+    }
+    func addTarget(){
+        descriptionView.nextButton.addTarget(self, action: #selector(nextProduction), for: .touchUpInside)
+        buttonView.addCartButton.addTarget(self, action: #selector(addWishList), for: .touchUpInside)
     }
     
     @objc func nextProduction(){
