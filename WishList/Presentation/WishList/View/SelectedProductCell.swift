@@ -60,7 +60,7 @@ class SelectedProductCell: UITableViewCell{
         productImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(16)
             $0.leading.equalToSuperview().offset(16)
-            $0.width.height.equalTo(100)
+            $0.width.equalTo(100)
             $0.bottom.equalToSuperview().offset(-16)
         }
         productNameLabel.snp.makeConstraints {

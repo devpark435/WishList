@@ -24,6 +24,7 @@
 		B5D2DAD82BD13EC500EE2CCF /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DAD72BD13EC500EE2CCF /* WishListViewController.swift */; };
 		B5D2DADA2BD1408400EE2CCF /* SelectedProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DAD92BD1408400EE2CCF /* SelectedProductCell.swift */; };
 		B5D2DADC2BD28DF400EE2CCF /* PayButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DADB2BD28DF400EE2CCF /* PayButtonView.swift */; };
+		B5EC629B2BD4FC300006E956 /* SelectProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DADF2BD4F7D200EE2CCF /* SelectProductModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -292,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5EC629B2BD4FC300006E956 /* SelectProductModel.xcdatamodeld in Sources */,
 				B5D2DACE2BD11C7C00EE2CCF /* BottomView.swift in Sources */,
 				B5D2DAD82BD13EC500EE2CCF /* WishListViewController.swift in Sources */,
 				B5D2DADA2BD1408400EE2CCF /* SelectedProductCell.swift in Sources */,
@@ -567,8 +569,7 @@
 				B5D2DAE02BD4F7D200EE2CCF /* SelectProductModel.xcdatamodel */,
 			);
 			currentVersion = B5D2DAE02BD4F7D200EE2CCF /* SelectProductModel.xcdatamodel */;
-			name = SelectProductModel.xcdatamodeld;
-			path = /Users/ryeol/Desktop/check/WishList/WishList/SelectProductModel.xcdatamodeld;
+			path = SelectProductModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
