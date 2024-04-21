@@ -15,7 +15,6 @@
 		B5D2DAA92BCD356D00EE2CCF /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B5D2DAA82BCD356D00EE2CCF /* Base */; };
 		B5D2DABB2BCD44E100EE2CCF /* ProductAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DABA2BCD44E100EE2CCF /* ProductAPIManager.swift */; };
 		B5D2DABD2BCD45A000EE2CCF /* RemoteProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DABC2BCD45A000EE2CCF /* RemoteProduct.swift */; };
-		B5D2DAC02BCD48A200EE2CCF /* SelectProductModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DABE2BCD48A200EE2CCF /* SelectProductModel.xcdatamodeld */; };
 		B5D2DAC22BCFEDD000EE2CCF /* ProductImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D2DAC12BCFEDD000EE2CCF /* ProductImageCell.swift */; };
 		B5D2DAC52BCFEEA100EE2CCF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B5D2DAC42BCFEEA100EE2CCF /* SnapKit */; };
 		B5D2DAC82BCFEEAA00EE2CCF /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = B5D2DAC72BCFEEAA00EE2CCF /* Then */; };
@@ -38,7 +37,6 @@
 		B5D2DAAA2BCD356D00EE2CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5D2DABA2BCD44E100EE2CCF /* ProductAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAPIManager.swift; sourceTree = "<group>"; };
 		B5D2DABC2BCD45A000EE2CCF /* RemoteProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteProduct.swift; sourceTree = "<group>"; };
-		B5D2DABF2BCD48A200EE2CCF /* SelectProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SelectProductModel.xcdatamodel; sourceTree = "<group>"; };
 		B5D2DAC12BCFEDD000EE2CCF /* ProductImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageCell.swift; sourceTree = "<group>"; };
 		B5D2DACB2BCFFFDC00EE2CCF /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		B5D2DACD2BD11C7C00EE2CCF /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
@@ -46,6 +44,7 @@
 		B5D2DAD72BD13EC500EE2CCF /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
 		B5D2DAD92BD1408400EE2CCF /* SelectedProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedProductCell.swift; sourceTree = "<group>"; };
 		B5D2DADB2BD28DF400EE2CCF /* PayButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayButtonView.swift; sourceTree = "<group>"; };
+		B5D2DAE02BD4F7D200EE2CCF /* SelectProductModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SelectProductModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +79,7 @@
 		B5D2DA9B2BCD356B00EE2CCF /* WishList */ = {
 			isa = PBXGroup;
 			children = (
+				B5D2DADF2BD4F7D200EE2CCF /* SelectProductModel.xcdatamodeld */,
 				B5D2DAB22BCD3FCF00EE2CCF /* Network */,
 				B5D2DAB12BCD3FC100EE2CCF /* Model */,
 				B5D2DAB02BCD369000EE2CCF /* Presentation */,
@@ -121,7 +121,6 @@
 			children = (
 				B5D2DAAA2BCD356D00EE2CCF /* Info.plist */,
 				B5D2DAA52BCD356D00EE2CCF /* Assets.xcassets */,
-				B5D2DABE2BCD48A200EE2CCF /* SelectProductModel.xcdatamodeld */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -303,7 +302,6 @@
 				B5D2DA9F2BCD356B00EE2CCF /* SceneDelegate.swift in Sources */,
 				B5D2DABB2BCD44E100EE2CCF /* ProductAPIManager.swift in Sources */,
 				B5D2DABD2BCD45A000EE2CCF /* RemoteProduct.swift in Sources */,
-				B5D2DAC02BCD48A200EE2CCF /* SelectProductModel.xcdatamodeld in Sources */,
 				B5D2DACC2BCFFFDC00EE2CCF /* DescriptionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -563,14 +561,14 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		B5D2DABE2BCD48A200EE2CCF /* SelectProductModel.xcdatamodeld */ = {
+		B5D2DADF2BD4F7D200EE2CCF /* SelectProductModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B5D2DABF2BCD48A200EE2CCF /* SelectProductModel.xcdatamodel */,
+				B5D2DAE02BD4F7D200EE2CCF /* SelectProductModel.xcdatamodel */,
 			);
-			currentVersion = B5D2DABF2BCD48A200EE2CCF /* SelectProductModel.xcdatamodel */;
+			currentVersion = B5D2DAE02BD4F7D200EE2CCF /* SelectProductModel.xcdatamodel */;
 			name = SelectProductModel.xcdatamodeld;
-			path = /Users/ryeol/Desktop/WishList/WishList/WishList/Resource/SelectProductModel.xcdatamodeld;
+			path = /Users/ryeol/Desktop/check/WishList/WishList/SelectProductModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

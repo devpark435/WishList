@@ -143,21 +143,11 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         do {
             try context.save()
             print("Product saved to Core Data")
-            printCoreData()
+            
         } catch {
             print("Failed to save product: \(error)")
         }
     }
-    
-    func printCoreData(){
-        guard let context = self.persistentContainer?.viewContext else { return }
-        let request = SelectProduct.fetchRequest()
-        if let products = try? context.fetch(request) {
-            print(products)
-        }
-    }
-    
-    
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
